@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .im-container{
+            position: relative;
+            width: 300px;
+        }
+        #smallImage{
+            display: block;
+            height: 200px;
+
+        }
+        #zoomResult{
+            position: absolute;
+            top: 0;
+            left: 400px;
+            background-repeat: no-repeat;
+            display: none;
+            /* background-color: red;
+             */
+             border: 1px solid black;
+            width: 500px;
+            height: 500px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="im-container">
+        <img id="smallImage" src="https://cdn.prod.website-files.com/5fd2ba952bcd68835f2c8254/654553fedbede7976b97eaf5_Professional-5.remini-enhanced.webp" alt="">
+        <div id="zoomResult"></div>
+    </div>
+
+    <script>
+        const smallImage = document.getElementById("smallImage");
+        const zoomResult = document.getElementById("zoomResult");
+
+        smallImage.addEventListener("mousemove",function(e){
+        zoomResult.style.display = "block";//show zoomed area when hovering
+        let posX = e.offsetX;
+        let posY = e.offsetY;
+        let width = smallImage.width;
+        let height = smallImage.height;
+
+
+        // zoom image 
+        let xParcent =  (posX/width)*100;
+        let yParcent =  (posY/height)*100;
+        zoomResult.style.backgroundImage = `url(https://cdn.prod.website-files.com/5fd2ba952bcd68835f2c8254/654553fedbede7976b97eaf5_Professional-5.remini-enhanced.webp)`
+    zoomResult.style.backgroundPosition = `${xParcent}% ${yParcent}%`;
+ zoomResult.addEventListener("mouseleave",function(){
+    zoomResult.style.display = "none";
+ })
+
+
+
+        // let xp
+        })
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

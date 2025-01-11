@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+int decToBinary(int decNum){
+    int ans = 0;//binary 
+    int pow = 1;// 10power zero next time 10power one
+    while(decNum>0){
+        int rem = decNum%2;
+        decNum = decNum/2;
+        ans += (rem*pow);
+        pow = pow*10;
+    }
+    return ans;
+}
+int main(){
+    int decNum = 50;
+    cout<<decToBinary(decNum)<<endl;
+}
